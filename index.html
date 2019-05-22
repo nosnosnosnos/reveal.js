@@ -1,49 +1,171 @@
 <!doctype html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<link rel="stylesheet" href="css/reset.css">
-		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/black.css">
+	<title>reveal.js</title>
 
-		<!-- Theme used for syntax highlighting of code -->
-		<link rel="stylesheet" href="lib/css/monokai.css">
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/black.css">
 
-		<!-- Printing and PDF exports -->
-		<script>
-			var link = document.createElement( 'link' );
-			link.rel = 'stylesheet';
-			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-			document.getElementsByTagName( 'head' )[0].appendChild( link );
-		</script>
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
-			</div>
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="lib/css/monokai.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+
+
+			<section data-markdown>
+				<textarea data-template>
+		## Page title
+
+		A paragraph with some text and a [link](http://hakim.se).
+			</textarea>
+			</section>
+
+			<!--               1                 -->
+			<section data-markdown>
+				<textarea data-template>
+					## ぷよぷよ風味のゲームAIを作った話
+					奥冨 匠
+				</textarea>
+			</section>
+
+			<!--               2                 -->
+			<section data-markdown>
+				<textarea data-template>
+					ぷよぷよ風味を感じてほしい
+
+					<iframe width="560" height="315" src="https://www.youtube.com/embed/8LHZSFz4rSc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				</textarea>
+			</section>
+
+			<!--               3                 -->
+			<section data-markdown>
+				<textarea data-template>
+					目次
+					- 1
+					- 2
+					- 3
+				</textarea>
+			</section>
+
+			<!--               4                 -->
+			<section data-markdown>
+				<textarea data-template>
+					簡単な説明
+					- 縦横斜めで和が20になると消える！
+					- 消えて更に落ちて連鎖(連鎖すると点数アップ)
+					- 全部で1000ターンまであり、すべてのターンで落ちてくるぷよは前もって分かります
+				</textarea>
+			</section>
+
+			<!--               4                 -->
+			<section data-markdown>
+				<textarea data-template>
+					簡単な説明
+					- 縦横斜めで和が20になると消える！
+					- 消えて更に落ちて連鎖(連鎖すると点数アップ)
+					- 全部で1000ターンまであり、落ちてくるぷよは全て事前に分かります
+				</textarea>
+			</section>
+
+			<!--               4                 -->
+			<section data-markdown>
+				<textarea data-template>
+					どうやって連鎖させればいいんだろう
+					自分もできないのに
+				</textarea>
+			</section>
+
+			<!--               4                 -->
+			<section data-markdown>
+				<textarea data-template>
+					## 全部で1000ターンまであり、落ちてくるぷよは全て事前に分かります
+					　　　　　　　　　　　　　↓
+					        総当たりでシミュレートすればいいのでは！
+				</textarea>
+			</section>
+
+			<!--               4                 -->
+			<section data-markdown>
+				<textarea data-template>
+						1手目 左端に
+						2手目 右端に
+						3手目 真ん中に落とした
+				</textarea>
+			</section>
+
+			<section data-markdown>
+				<textarea data-template>
+						1手目 左端に
+						2手目 右端に ← 左端に落とすパターンもあるな…
+						3手目 真ん中に落とした
+				</textarea>
+			</section>
+
+			<section data-markdown>
+				<textarea data-template>
+						1手目 左端に
+						2手目 右端に ← 左端に落とすパターンもあるな…
+						3手目 真ん中に落とした
+				</textarea>
+			</section>
+
+			<section data-markdown>
+				<textarea data-template>
+						1手目 左端に
+						2手目 右端に ← 左端に落とすパターンもあるな… 木構造だ!
+						3手目 真ん中に落とした
+				</textarea>
+			</section>
+
+
+
+
+
+			<section>Slide 2</section>
 		</div>
+	</div>
 
-		<script src="js/reveal.js"></script>
+	<script src="js/reveal.js"></script>
 
-		<script>
-			// More info about config & dependencies:
-			// - https://github.com/hakimel/reveal.js#configuration
-			// - https://github.com/hakimel/reveal.js#dependencies
-			Reveal.initialize({
-				dependencies: [
-					{ src: 'plugin/markdown/marked.js' },
-					{ src: 'plugin/markdown/markdown.js' },
-					{ src: 'plugin/notes/notes.js', async: true },
-					{ src: 'plugin/highlight/highlight.js', async: true }
-				]
-			});
-		</script>
-	</body>
+	<script>
+		// More info about config & dependencies:
+		// - https://github.com/hakimel/reveal.js#configuration
+		// - https://github.com/hakimel/reveal.js#dependencies
+		Reveal.initialize({
+			dependencies: [{
+					src: 'plugin/markdown/marked.js'
+				},
+				{
+					src: 'plugin/markdown/markdown.js'
+				},
+				{
+					src: 'plugin/notes/notes.js',
+					async: true
+				},
+				{
+					src: 'plugin/highlight/highlight.js',
+					async: true
+				}
+			]
+		});
+	</script>
+</body>
+
 </html>
