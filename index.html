@@ -49,8 +49,7 @@
 			<section data-markdown>
 				<textarea data-template>
 					ぷよぷよ風味を感じてほしい
-
-					<iframe width="560" height="315" src="https://www.youtube.com/embed/8LHZSFz4rSc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+					<iframe width="560" height="315" src="https://www.youtube.com/embed/BBEeTwFGJmg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 				</textarea>
 			</section>
 
@@ -134,11 +133,214 @@
 				</textarea>
 			</section>
 
+			<section data-markdown>
+				<textarea data-template>
+						木構造の図
+				</textarea>
+			</section>
+
+			<section data-markdown>
+				<textarea data-template>
+					木構造といえば探索
+				</textarea>
+			</section>
+
+			<section data-markdown>
+				<textarea data-template>
+					探索アルゴリズム一覧
+					- 幅優先探索
+					- 深さ優先探索
+					- ビームサーチ
+					- chokudaiサーチ
+				</textarea>
+			</section>
+
+			<section data-markdown>
+				<textarea data-template>
+					でも問題が!
+					盤面数が多すぎて時間がかかる！
+				</textarea>
+			</section>
+
+			<section data-markdown>
+				<textarea data-template>
+						木構造の図
+
+						1ターンに約40通りの落とし方があります
+				</textarea>
+			</section>
+
+			<section data-markdown>
+				<textarea data-template>
+						n手先まで全部見ると、40^n通りあります!!
+				</textarea>
+			</section>
+
+			<section data-markdown>
+				<textarea data-template>
+						n手先まで全部見ると、60のn乗通りあります!!
+						全部見られない
+				</textarea>
+			</section>
+
+			<section data-markdown>
+				<textarea data-template>
+						木構造の図
+						枝刈りしよう！
+				</textarea>
+			</section>
+
+			<section data-markdown>
+				<textarea data-template>
+						連鎖しなさそうな状態になったら、その枝を打ち切る
+						例
+						- 中途半端に連鎖してしまった
+						- 天井にぶつかりそう
+				</textarea>
+			</section>
+
+			<section data-markdown>
+				<textarea data-template>
+						~~~連鎖しなさそうな状態になったら、その枝を打ち切る~~~
+						40本も枝があるので、むしろ優秀なのを選ぶ!
+				</textarea>
+			</section>
 
 
+			<section data-markdown>
+				<textarea data-template>
+						どうやって連鎖しそう度を数値にする？
+				</textarea>
+			</section>
+
+			<section data-markdown>
+				<textarea data-template>
+					評価関数の中でさらにシミュレータする
+					適当にぷよを落として、連鎖した数を評価した
+				</textarea>
+			</section>
+
+			<section data-markdown>
+				<textarea data-template>
+					これでうまくぷよを積んでくれるので、好きなタイミングで発火！
+					<iframe width="560" height="315" src="https://www.youtube.com/embed/8LHZSFz4rSc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				</textarea>
+			</section>
+
+			<section data-markdown>
+				<textarea data-template>
+					番外編
+					とはいえ大会中 他の人も同じことをやっているので僅差勝負
+				</textarea>
+			</section>
+
+			<section data-markdown>
+				<textarea data-template>
+					番外編
+					人より深く読みたい!!!
+					何手先までよめるのか!
+					※羽生さんは1000手先までよめるらしい
+				</textarea>
+			</section>
+
+			<section data-markdown>
+				<textarea data-template>
+					まず、一回探索した盤面をスキップする -> 効率化
+				</textarea>
+			</section>
+
+			<section data-markdown>
+				<textarea data-template>
+					盤面をhash化して、処理済みの盤面と比較
+				</textarea>
+			</section>
+
+			<section data-markdown>
+				<textarea data-template>
+					盤面をhash化?
+					ZobristHash -> 最強
+					どんなゲームにも使える！早い！
+				</textarea>
+			</section>
+
+			<section data-markdown>
+				<textarea data-template>
+					すべてのマスのぷよの状態に乱数を割り振る
+					画像
+				</textarea>
+			</section>
+
+			<section data-markdown>
+				<textarea data-template>
+					各マスの乱数をそれぞれxor
+					hash完成!
+					画像
+				</textarea>
+			</section>
+
+			<section data-markdown>
+				<textarea data-template>
+					過去のhashと比べるの、O(N)かかってしまう
+					※シミュレートした過去の盤面数をN
+				</textarea>
+			</section>
+
+			<section data-markdown>
+				<textarea data-template>
+					weakhash! O(1)でチェック出来る!!!!!!
+				</textarea>
+			</section>
+
+			<section data-markdown>
+				<textarea data-template>
+					16bitのhashを作成し、
+					8bit,8bitのkey,valueに分ける
+				</textarea>
+			</section>
+
+			<section data-markdown>
+				<textarea data-template>
+					16bitのhashを作成し、
+					8bit,8bitのkey,valueに分ける
+
+					b1111222233334444 -> b11112222 : b33334444
+				</textarea>
+			</section>
+
+			<section data-markdown>
+				<textarea data-template>
+					b1111222233334444 -> b11112222 : b33334444
+					```
+					int hashList[0xffff];
+
+					if ( hashList[b11112222] == b33334444) {
+						//シミュレートしたことある盤面だよ!
+					}
+
+					//Listにセット
+					hashList[b11112222] = b33334444
+					```
+				</textarea>
+			</section>
+
+			<section data-markdown>
+				<textarea data-template>
+					他にも空雑巾を絞るような高速化があります
+					盤面をbitとして管理する方法や、
+					IntelのCPU命令セットならSSE命令を直接叩く
+					(ビットが立っている数を高速で数えるSSE命令:popcnt)
+				</textarea>
+			</section>
+
+			<section data-markdown>
+				<textarea data-template>
+					呪文みたいなコードだらけですが、意味が分かると面白いです！
+					ぜひぜひゲームAIコンテストへ！
+					[Coding Games and Programming Challenges to Code Better](https://www.codingame.com/)
+				</textarea>
+			</section>
 
 
-			<section>Slide 2</section>
 		</div>
 	</div>
 
