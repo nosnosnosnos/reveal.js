@@ -28,15 +28,6 @@
 	<div class="reveal">
 		<div class="slides">
 
-
-			<section data-markdown>
-				<textarea data-template>
-		## Page title
-
-		A paragraph with some text and a [link](http://hakim.se).
-			</textarea>
-			</section>
-
 			<!--               1                 -->
 			<section data-markdown>
 				<textarea data-template>
@@ -57,9 +48,10 @@
 			<section data-markdown>
 				<textarea data-template>
 					目次
-					- 1
-					- 2
-					- 3
+					- 連鎖を作る方法
+					- 計算量を抑える方法
+					- 地道な高速化
+					- 勧誘
 				</textarea>
 			</section>
 
@@ -67,8 +59,7 @@
 			<section data-markdown>
 				<textarea data-template>
 					簡単な説明
-					- 縦横斜めで和が20になると消える！
-					- 消えて更に落ちて連鎖(連鎖すると点数アップ)
+					- 縦横斜めで和が20になると消える！ぷよぷよ
 					- 全部で1000ターンまであり、すべてのターンで落ちてくるぷよは前もって分かります
 				</textarea>
 			</section>
@@ -76,72 +67,32 @@
 			<!--               4                 -->
 			<section data-markdown>
 				<textarea data-template>
-					簡単な説明
-					- 縦横斜めで和が20になると消える！
-					- 消えて更に落ちて連鎖(連鎖すると点数アップ)
-					- 全部で1000ターンまであり、落ちてくるぷよは全て事前に分かります
-				</textarea>
-			</section>
-
-			<!--               4                 -->
-			<section data-markdown>
-				<textarea data-template>
 					どうやって連鎖させればいいんだろう
-					自分もできないのに
+					自分もぷよぷよ出来ないのに…
+
 				</textarea>
 			</section>
 
 			<!--               4                 -->
 			<section data-markdown>
 				<textarea data-template>
-					## 全部で1000ターンまであり、落ちてくるぷよは全て事前に分かります
-					　　　　　　　　　　　　　↓
-					        総当たりでシミュレートすればいいのでは！
-				</textarea>
-			</section>
-
-			<!--               4                 -->
-			<section data-markdown>
-				<textarea data-template>
-						1手目 左端に
-						2手目 右端に
-						3手目 真ん中に落とした
+					#### 全部で1000ターンまであり、落ちてくるぷよは全て事前に分かります
+				　　
+					 総当たりでシミュレートすればいいのでは！
 				</textarea>
 			</section>
 
 			<section data-markdown>
 				<textarea data-template>
-						1手目 左端に
-						2手目 右端に ← 左端に落とすパターンもあるな…
-						3手目 真ん中に落とした
-				</textarea>
-			</section>
-
-			<section data-markdown>
-				<textarea data-template>
-						1手目 左端に
-						2手目 右端に ← 左端に落とすパターンもあるな…
-						3手目 真ん中に落とした
-				</textarea>
-			</section>
-
-			<section data-markdown>
-				<textarea data-template>
-						1手目 左端に
-						2手目 右端に ← 左端に落とすパターンもあるな… 木構造だ!
-						3手目 真ん中に落とした
-				</textarea>
-			</section>
-
-			<section data-markdown>
-				<textarea data-template>
-						木構造の図
+					2手先までの図
+					<img data-src="tree.png">
 				</textarea>
 			</section>
 
 			<section data-markdown>
 				<textarea data-template>
 					木構造といえば探索
+					<img data-src="tree.png">
 				</textarea>
 			</section>
 
@@ -164,8 +115,7 @@
 
 			<section data-markdown>
 				<textarea data-template>
-						木構造の図
-
+						<img data-src="tree.png">
 						1ターンに約40通りの落とし方があります
 				</textarea>
 			</section>
@@ -173,20 +123,33 @@
 			<section data-markdown>
 				<textarea data-template>
 						n手先まで全部見ると、40^n通りあります!!
+						<img data-src="https://3.bp.blogspot.com/-BKAMRiYwJMU/VvIUB-eJ9lI/AAAAAAAA5DM/ls1IM5oJyP8z9h-zPdfVuoGDDistAGdUA/s400/jiko_rakka.png">
 				</textarea>
 			</section>
 
 			<section data-markdown>
 				<textarea data-template>
-						n手先まで全部見ると、60のn乗通りあります!!
+						n手先まで全部見ると、40のn乗通りあります!!
 						全部見られない
 				</textarea>
 			</section>
 
 			<section data-markdown>
 				<textarea data-template>
-						木構造の図
 						枝刈りしよう！
+						<img data-src="https://4.bp.blogspot.com/-kAPATIKR69U/WlGnzyJ0uVI/AAAAAAABJeY/CtXicJVz3C0eShdqptLPYar-Bnu7jY9yACLcBGAs/s800/gardening_takaeda_kiribasami.png">
+				</textarea>
+			</section>
+
+			<section data-markdown>
+				<textarea data-template>
+					<img data-src="tree.png">
+				</textarea>
+			</section>
+
+			<section data-markdown>
+				<textarea data-template>
+						<img data-src="https://4.bp.blogspot.com/-kAPATIKR69U/WlGnzyJ0uVI/AAAAAAABJeY/CtXicJVz3C0eShdqptLPYar-Bnu7jY9yACLcBGAs/s800/gardening_takaeda_kiribasami.png">
 				</textarea>
 			</section>
 
@@ -203,6 +166,7 @@
 				<textarea data-template>
 						~~~連鎖しなさそうな状態になったら、その枝を打ち切る~~~
 						40本も枝があるので、むしろ優秀なのを選ぶ!
+						<img data-src="https://2.bp.blogspot.com/-nJHp8vLIrEo/Wat3BxiPZTI/AAAAAAABGdY/awyKq7pb8LE9Q2VN5WygN1ygS9fHenj0ACLcBGAs/s800/tsuri_zarigani.png">
 				</textarea>
 			</section>
 
@@ -210,6 +174,7 @@
 			<section data-markdown>
 				<textarea data-template>
 						どうやって連鎖しそう度を数値にする？
+						<img data-src="https://1.bp.blogspot.com/-eMLID2dYzwM/VwIgW_nlilI/AAAAAAAA5bY/-osLYuNceb4GArB0E5Cl1D4oYMVDNVKIw/s800/question_head_boy.png">
 				</textarea>
 			</section>
 
@@ -266,7 +231,7 @@
 			<section data-markdown>
 				<textarea data-template>
 					すべてのマスのぷよの状態に乱数を割り振る
-					画像
+					<img data-src="puyo.png">
 				</textarea>
 			</section>
 
@@ -274,7 +239,7 @@
 				<textarea data-template>
 					各マスの乱数をそれぞれxor
 					hash完成!
-					画像
+					<img data-src="puyo.png">
 				</textarea>
 			</section>
 
